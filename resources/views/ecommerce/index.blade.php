@@ -165,9 +165,8 @@
                 @empty
                     <div class="row text-center py-3">
                         <div class="col-lg-6 m-auto">
-                            <h1 class="h1">Produk Belum tersedia</h1>
                             <p>
-                                Tunggu Update list Produk Terbaru Kami.
+                                Produk Belum tersedia
                             </p>
                         </div>
                     </div>
@@ -212,9 +211,9 @@
             @empty
                 <div class="row text-center py-3">
                     <div class="col-lg-6 m-auto">
-                        <h1 class="h1">Postingan Belum Tersedia</h1>
+
                         <p>
-                            Tunggu Update Postingan Terbaru Kami hanya disini.
+                            Postingan Belum Tersedia.
                         </p>
                     </div>
                 </div>
