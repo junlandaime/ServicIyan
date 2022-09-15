@@ -27,6 +27,7 @@ Auth::routes();
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
 Route::get('/product', [FrontController::class, 'product'])->name('front.product');
+Route::get('/product/{slug}', [FrontController::class, 'show'])->name('front.show_product');
 Route::get('/blog', [FrontController::class, 'blog']);
 Route::get('/contact', [FrontController::class, 'kontak'])->name('front.contact');
 Route::get('/category/{slug}', [FrontController::class, 'categoryProduct'])->name('front.category');
