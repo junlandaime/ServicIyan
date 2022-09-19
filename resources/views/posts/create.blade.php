@@ -77,13 +77,13 @@
                                         <input type="number" name="weight" class="form-control"
                                             value="{{ old('weight') }}" required>
                                         <p class="text-danger">{{ $errors->first('weight') }}</p>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group">
-                                        <label for="image">Foto Produk</label>
+                                        <label for="image">Foto Postingan</label>
                                         <input type="file" name="image" class="form-control"
                                             value="{{ old('image') }}" required>
                                         <p class="text-danger">{{ $errors->first('image') }}</p>
-                                    </div> --}}
+                                    </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary btn-sm">Tambah</button>
                                     </div>

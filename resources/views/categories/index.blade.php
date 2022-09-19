@@ -23,7 +23,7 @@
                             </div>
                             <div class="card-body">
 
-                                <form action="{{ route('category.store') }}" method="post">
+                                <form action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label for="name">Kategori</label>
@@ -42,6 +42,12 @@
                                             @endforeach
                                         </select>
                                         <p class="text-danger">{{ $errors->first('name') }}</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image">Foto Kategori</label>
+                                        <input type="file" name="image" class="form-control"
+                                            value="{{ old('image') }}" required>
+                                        <p class="text-danger">{{ $errors->first('image') }}</p>
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary btn-sm">Tambah</button>
@@ -87,7 +93,10 @@
                                             <!-- LOOPING DATA KATEGORI SESUAI JUMLAH DATA YANG ADA DI VARIABLE $CATEGORY -->
                                             @forelse ($category as $val)
                                                 <tr>
-                                                    <td></td>
+                                                    <td>
+                                                        <img src="{{ asset('storage/categoryproducts/' . $val->image) }}"
+                                                            width="100px" height="100px" alt="{{ $val->name }}">
+                                                    </td>
                                                     <td><strong>{{ $val->name }}</strong></td>
 
                                                     <!-- MENGGUNAKAN TERNARY OPERATOR, UNTUK MENGECEK, JIKA $val->parent ADA MAKA TAMPILKAN NAMA PARENTNYA, SELAIN ITU MAKA TANMPILKAN STRING - -->

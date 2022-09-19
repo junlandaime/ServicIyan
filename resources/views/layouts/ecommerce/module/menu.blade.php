@@ -22,10 +22,10 @@
                         <a class="nav-link" href="{{ route('front.index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('front.product') }}">Shop</a>
+                        <a class="nav-link" href="{{ route('front.product') }}">Service</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('front.blog') }}">Blogs</a>
+                        <a class="nav-link" href="{{ route('front.post') }}">Article</a>
                     </li>
 
                     <li class="nav-item">

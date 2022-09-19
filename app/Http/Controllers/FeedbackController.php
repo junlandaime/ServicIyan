@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
 {   
-       
+    public function index()
+    {
+        $feedback = Feedback::orderBy('created_at', 'DESC')->paginate(10);
+        return view('feedbacks.index', compact('feedback'));
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [

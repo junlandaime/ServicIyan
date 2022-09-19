@@ -127,7 +127,7 @@ class ProductController extends Controller
             //MAKA UPLOAD FILE TERSEBUT
             $file->storeAs('public/products', $filename);
             //DAN HAPUS FILE GAMBAR YANG LAMA
-            Storage::delete('app/public/products/' . $product->image);
+            Storage::delete('public/products/' . $product->image);
         }
 
     //KEMUDIAN UPDATE PRODUK TERSEBUT

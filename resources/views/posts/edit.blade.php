@@ -66,7 +66,17 @@
                                         </select>
                                         <p class="text-danger">{{ $errors->first('kategory_id') }}</p>
                                     </div>
-
+                                    <div class="form-group">
+                                        <label for="image">Foto Postingan</label>
+                                        <br>
+                                        <!--  TAMPILKAN GAMBAR SAAT INI -->
+                                        <img src="{{ asset('storage/posts/' . $post->image) }}" width="100px"
+                                            height="100px" alt="{{ $post->name }}">
+                                        <hr>
+                                        <input type="file" name="image" class="form-control">
+                                        <p><strong>Biarkan kosong jika tidak ingin mengganti gambar</strong></p>
+                                        <p class="text-danger">{{ $errors->first('image') }}</p>
+                                    </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary btn-sm">Update</button>
                                     </div>

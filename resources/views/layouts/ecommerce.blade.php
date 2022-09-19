@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="{{ asset('ecommerce/assets/img/apple-icon.png') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('ecommerce/assets/img/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('ecommerce/assets/img/favicon2.ico') }}">
 
     <link rel="stylesheet" href="{{ asset('ecommerce/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('ecommerce/assets/css/templatemo.css') }}">
@@ -17,6 +17,8 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="{{ asset('ecommerce/assets/css/fontawesome.min.css') }}">
+
+
     <!--
     
 TemplateMo 559 Zay Shop
@@ -24,6 +26,7 @@ TemplateMo 559 Zay Shop
 https://templatemo.com/tm-559-zay-shop
 
 -->
+    @yield('css')
 </head>
 
 <body>
@@ -87,7 +90,7 @@ https://templatemo.com/tm-559-zay-shop
     @yield('content')
 
 
-    <div class="elfsight-app-ad5af8d1-7062-49c1-9f2c-9f351d4cfbe4"></div>
+    {{-- <div class="elfsight-app-ad5af8d1-7062-49c1-9f2c-9f351d4cfbe4"></div> --}}
 
     <!-- Start Footer -->
     <footer class="bg-dark" id="tempaltemo_footer">
@@ -114,13 +117,14 @@ https://templatemo.com/tm-559-zay-shop
                 </div>
 
                 <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Our Service</h2>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="{{ url('/category/battery') }}">Battery</a></li>
-                        <li><a class="text-decoration-none" href="{{ url('/category/handphone') }}">Handphone</a></li>
-                        <li><a class="text-decoration-none" href="{{ url('/category/lcd') }}">LCD</a></li>
-                        <li><a class="text-decoration-none" href="{{ route('front.product') }}">All</a></li>
-
+                        {{-- @dd($categories) --}}
+                        @foreach ($categories as $catego)
+                            <li><a class="text-decoration-none"
+                                    href="{{ url('/category/' . $catego->slug) }}">{{ $catego->name }}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
 
@@ -128,8 +132,8 @@ https://templatemo.com/tm-559-zay-shop
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
                     <ul class="list-unstyled text-light footer-link-list">
                         <li><a class="text-decoration-none" href="{{ route('front.index') }}">Home</a></li>
-                        <li><a class="text-decoration-none" href="{{ route('front.product') }}">Shop</a></li>
-                        <li><a class="text-decoration-none" href="{{ route('front.blog') }}">Blogs</a></li>
+                        <li><a class="text-decoration-none" href="{{ route('front.product') }}">Service</a></li>
+                        <li><a class="text-decoration-none" href="{{ route('front.post') }}">Article</a></li>
                         <li><a class="text-decoration-none" href="{{ route('front.contact') }}">Contact</a></li>
                     </ul>
                 </div>
@@ -191,13 +195,18 @@ https://templatemo.com/tm-559-zay-shop
     </footer>
     <!-- End Footer -->
 
+    @yield('widget')
+
+
+
     <!-- Start Script -->
-    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    {{-- <script src="https://apps.elfsight.com/p/platform.js" defer></script> --}}
     <script src="{{ asset('ecommerce/assets/js/jquery-1.11.0.min.js') }}"></script>
     <script src="{{ asset('ecommerce/assets/js/jquery-migrate-1.2.1.min.js') }}"></script>
     <script src="{{ asset('ecommerce/assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('ecommerce/assets/js/templatemo.js') }}"></script>
     <script src="{{ asset('ecommerce/assets/js/custom.js') }}"></script>
+    @yield('js')
     <!-- End Script -->
 </body>
 

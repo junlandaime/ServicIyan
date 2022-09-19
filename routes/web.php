@@ -44,11 +44,13 @@ Route::group(['prefix' => 'administrator', 'middleware' => 'auth'], function() {
 
     Route::resource('kategory', KategoryController::class)->except(['create', 'show']);
     Route::resource('post', PostController::class)->except(['show']);
+    Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
+    
 });
 
-Route::get('/posts', [PostController::class, 'front'])->name('front.blog');
+Route::get('/posts', [FrontController::class, 'post'])->name('front.post');
 // halaman single post
-Route::get('posts/{post:slug}', [PostController::class, 'show']);
+Route::get('posts/{post:slug}', [FrontController::class, 'showpost']);
 Route::get('/categories', [PostController::class, 'categories']);
 // Route::get('/categories/{category:slug}', [PostController::class, 'category']);
 Route::get('authors/{author:username}', [PostController::class, 'author']);

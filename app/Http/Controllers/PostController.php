@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
-use Illuminate\Http\Request;
 use App\Models\Kategory;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -23,7 +25,7 @@ class PostController extends Controller
             $title = ' in ' . $author->name;
         }
 
-        return view('posts.posts', [
+        return view('ecommerce.posts', [
             "title" => "All Posts" . $title,
             "active" => "posts",
             // "posts" => Post::all()
@@ -93,8 +95,16 @@ class PostController extends Controller
             'title' => 'required|string|max:100',
             'body' => 'required',
             'kategory_id' => 'required|exists:kategories,id',
+            'image' => 'required|image|mimes:png,jpeg,jpg'
         ]);
 
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+
+            $filename = time() . Str::slug($request->name) . '.' . $file->getClientOriginalExtension();
+
+            $file->storeAs('public/posts', $filename);
+            
             $post = Post::create([
                 'title' => $request->title,
                 'slug' => $request->title,
@@ -102,11 +112,12 @@ class PostController extends Controller
                 'user_id' => 1,
                 'body' => $request->body,
                 'excerpt' => $request->body,
+                'image' => $filename,
                 'status' => $request->status
             ]);
             
             return redirect(route('post.index'))->with(['success' => 'Post Baru Ditambahkan!']);
-        
+        }
     }
 
     public function edit($id)
@@ -123,10 +134,21 @@ class PostController extends Controller
             'title' => 'required|string|max:100',
             'body' => 'required',
             'kategory_id' => 'required|exists:kategories,id',
+            'image' => 'nullable|image|mimes:png,jpeg,jpg'
         ]);
 
         $post = Post::find($id); //AMBIL DATA PRODUK YANG AKAN DIEDIT BERDASARKAN ID
+        $filename = $post->image; //SIMPAN SEMENTARA NAMA FILE IMAGE SAAT INI
     
+        //JIKA ADA FILE GAMBAR YANG DIKIRIM
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . Str::slug($request->name) . '.' . $file->getClientOriginalExtension();
+            //MAKA UPLOAD FILE TERSEBUT
+            $file->storeAs('public/posts', $filename);
+            //DAN HAPUS FILE GAMBAR YANG LAMA
+            Storage::delete('public/posts/' . $post->image);
+        }
         
 
     //KEMUDIAN UPDATE PRODUK TERSEBUT
@@ -134,6 +156,7 @@ class PostController extends Controller
             'title' => $request->title,
             'body' => $request->body,
             'kategory_id' => $request->kategory_id,
+            'image' => $filename,
             'status' => $request->status
         ]);
         return redirect(route('post.index'))->with(['success' => 'Data Postingan Diperbaharui']);

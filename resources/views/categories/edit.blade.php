@@ -20,7 +20,8 @@
                             </div>
                             <div class="card-body">
                                 <!-- ROUTINGNYA MENGIRIMKAN ID CATEGORY YANG AKAN DIEDIT -->
-                                <form action="{{ route('category.update', $category->id) }}" method="post">
+                                <form action="{{ route('category.update', $category->id) }}" method="post"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
 
@@ -42,6 +43,17 @@
                                             @endforeach
                                         </select>
                                         <p class="text-danger">{{ $errors->first('name') }}</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image">Gambar Kategori</label>
+                                        <br>
+                                        <!--  TAMPILKAN GAMBAR SAAT INI -->
+                                        <img src="{{ asset('storage/categoryproducts/' . $category->image) }}"
+                                            width="100px" height="100px" alt="{{ $category->name }}">
+                                        <hr>
+                                        <input type="file" name="image" class="form-control">
+                                        <p><strong>Biarkan kosong jika tidak ingin mengganti gambar</strong></p>
+                                        <p class="text-danger">{{ $errors->first('image') }}</p>
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-primary btn-sm">Simpan</button>
