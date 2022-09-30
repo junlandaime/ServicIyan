@@ -38,7 +38,7 @@ class ProductController extends Controller
             'description' => 'required',
             'category_id' => 'required|exists:categories,id',
             'price' => 'required|integer',
-            'weight' => 'required|integer',
+            // 'weight' => 'required|integer',
             'image' => 'required|image|mimes:png,jpeg,jpg',
         ]);
 
@@ -56,7 +56,7 @@ class ProductController extends Controller
                 'description' => $request->description,
                 'image' => $filename,
                 'price' => $request->price,
-                'weight' => $request->weight,
+                // 'weight' => $request->weight,
                 'status' => $request->status
             ]);
 
@@ -113,7 +113,7 @@ class ProductController extends Controller
             'description' => 'required',
             'category_id' => 'required|exists:categories,id',
             'price' => 'required|integer',
-            'weight' => 'required|integer',
+            // 'weight' => 'required|integer',
             'image' => 'nullable|image|mimes:png,jpeg,jpg' //IMAGE BISA NULLABLE
         ]);
 
@@ -136,7 +136,7 @@ class ProductController extends Controller
             'description' => $request->description,
             'category_id' => $request->category_id,
             'price' => $request->price,
-            'weight' => $request->weight,
+            // 'weight' => $request->weight,
             'image' => $filename,
             'status' => $request->status
         ]);

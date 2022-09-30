@@ -72,12 +72,12 @@
                                             value="{{ $product->price }}" required>
                                         <p class="text-danger">{{ $errors->first('price') }}</p>
                                     </div>
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label for="weight">Berat</label>
                                         <input type="number" name="weight" class="form-control"
                                             value="{{ $product->weight }}" required>
                                         <p class="text-danger">{{ $errors->first('weight') }}</p>
-                                    </div>
+                                    </div> --}}
 
                                     <!-- GAMBAR TIDAK LAGI WAJIB, JIKA DIISI MAKA GAMBAR AKAN DIGANTI, JIKA DIBIARKAN KOSONG MAKA GAMBAR TIDAK AKAN DIUPDATE -->
                                     <div class="form-group">

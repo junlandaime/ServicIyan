@@ -47,7 +47,8 @@
                                         <select name="status" class="form-control" required>
                                             <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Publish
                                             </option>
-                                            <option value="0" {{ old('status') == '0' ? 'selected' : '' }}>Draft</option>
+                                            <option value="0" {{ old('status') == '0' ? 'selected' : '' }}>Draft
+                                            </option>
                                         </select>
                                         <p class="text-danger">{{ $errors->first('status') }}</p>
                                     </div>
@@ -71,12 +72,12 @@
                                             value="{{ old('price') }}" required>
                                         <p class="text-danger">{{ $errors->first('price') }}</p>
                                     </div>
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label for="weight">Berat</label>
                                         <input type="number" name="weight" class="form-control"
                                             value="{{ old('weight') }}" required>
                                         <p class="text-danger">{{ $errors->first('weight') }}</p>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group">
                                         <label for="image">Foto Produk</label>
                                         <input type="file" name="image" class="form-control"
