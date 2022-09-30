@@ -47,10 +47,11 @@ class FrontController extends Controller
     {
         //QUERY UNTUK MENGAMBIL SINGLE DATA BERDASARKAN SLUG-NYA
         $product = Product::with(['category'])->where('slug', $slug)->first();
-        $product->visitsCounter()->increment();
-        $count = visits($product)->period('day')->count();
+        // $product->visitsCounter()->increment();
+        // $count = visits($product)->period('day')->count();
         //LOAD VIEW SHOW.BLADE.PHP DAN PASSING DATA PRODUCT
-        return view('ecommerce.show', compact('product', 'count'));
+        return view('ecommerce.show', compact('product'));
+        // return view('ecommerce.show', compact('product', 'count'));
     }
 
     public function post()
