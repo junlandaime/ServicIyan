@@ -154,10 +154,10 @@
                                 </li> --}}
                             </ul>
 
-                            <h6>Berat:</h6>
+                            {{-- <h6>Berat:</h6>
                             <ul class="list-unstyled pb-3">
                                 <li>{{ $product->weight }} gr</li>
-                            </ul>
+                            </ul> --}}
 
                             <form action="" method="GET">
                                 <input type="hidden" name="product-title" value="Activewear">

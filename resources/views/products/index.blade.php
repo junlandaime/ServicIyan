@@ -77,8 +77,8 @@
                                                         <!-- ADAPUN NAMA KATEGORINYA DIAMBIL DARI HASIL RELASI PRODUK DAN KATEGORI -->
                                                         <label>Kategori: <span
                                                                 class="badge badge-info">{{ $row->category->name }}</span></label><br>
-                                                        <label>Berat: <span class="badge badge-info">{{ $row->weight }}
-                                                                gr</span></label><br>
+                                                        {{-- <label>Berat: <span class="badge badge-info">{{ $row->weight }}
+                                                                gr</span></label><br> --}}
                                                         {{-- <label>View: <span
                                                                 class="badge badge-info">{{ visits($row)->period('day')->count() }}
                                                             </span></label> --}}
