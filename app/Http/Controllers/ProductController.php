@@ -92,7 +92,7 @@ class ProductController extends Controller
             $file = $request->file('file');
             $filename = time() . '-product.' . $file->getClientOriginalExtension();
             $file->storeAs('public/uploads', $filename);
-            // dd($file);
+            
             ProductJob::dispatch($request->category_id, $filename);
             return redirect()->back()->with(['success' => 'Upload Produk Dijadwalkan']);
         }

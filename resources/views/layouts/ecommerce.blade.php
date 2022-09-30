@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="{{ asset('ecommerce/assets/img/apple-icon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('ecommerce/assets/img/apple-icon2.png') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('ecommerce/assets/img/favicon2.ico') }}">
 
     <link rel="stylesheet" href="{{ asset('ecommerce/assets/css/bootstrap.min.css') }}">
@@ -18,7 +18,7 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="{{ asset('ecommerce/assets/css/fontawesome.min.css') }}">
 
-
+    @yield('css')
     <!--
     
 TemplateMo 559 Zay Shop

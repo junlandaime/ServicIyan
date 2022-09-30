@@ -63,17 +63,17 @@
                                                     <td>{{ $row->created_at->format('d-m-Y') }}</td>
 
                                                     <!-- KARENA BERISI HTML MAKA KITA GUNAKAN { !! UNTUK MENCETAK DATA -->
-                                                    <td>
+                                                    {{-- <td>
+                                                        {{ $row->status }}
                                                         <!-- FORM UNTUK MENGHAPUS DATA PRODUK -->
-                                                        {{-- <form action="{{ route('product.destroy', $row->id) }}"
+                                                        <form action="{{ route('feedback.publish', $row->id) }}"
                                                             method="post">
                                                             @csrf
-                                                            @method('DELETE')
-                                                            <a href="{{ route('product.edit', $row->id) }}"
-                                                                class="btn btn-warning btn-sm">Edit</a>
-                                                            <button class="btn btn-danger btn-sm">Hapus</button>
-                                                        </form> --}}
-                                                    </td>
+                                                            <input type="hidden" name="status" value="1">
+
+                                                            <button class="btn btn-success btn-sm">Publish</button>
+                                                        </form>
+                                                    </td> --}}
                                                 </tr>
                                             @empty
                                                 <tr>

@@ -32,6 +32,7 @@ Route::get('/blog', [FrontController::class, 'blog']);
 Route::get('/contact', [FrontController::class, 'kontak'])->name('front.contact');
 Route::get('/category/{slug}', [FrontController::class, 'categoryProduct'])->name('front.category');
 Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::get('/feedback', [FeedbackController::class, 'list'])->name('feedback.list');
 
 Route::group(['prefix' => 'administrator', 'middleware' => 'auth'], function() {
     Route::get('/home', [HomeController::class, 'index'])->name('home'); //JADI ROUTING INI SUDAH ADA DARI ARTIKEL SEBELUMNYA TAPI KITA PINDAHKAN KEDALAM GROUPING
@@ -45,6 +46,7 @@ Route::group(['prefix' => 'administrator', 'middleware' => 'auth'], function() {
     Route::resource('kategory', KategoryController::class)->except(['create', 'show']);
     Route::resource('post', PostController::class)->except(['show']);
     Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
+    Route::post('/feedback', [FeedbackController::class, 'publish'])->name('feedback.publish');
     
 });
 

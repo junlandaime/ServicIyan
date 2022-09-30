@@ -32,4 +32,22 @@ class FeedbackController extends Controller
         // return redirect(dd($request))->with(['success' => 'Terimakasih atas Feedbackmu!']);
         return redirect(route('front.contact'))->with(['success' => 'Terimakasih atas Feedbackmu!']);
     }
+
+    public function list()
+    {
+        $feedback = Feedback::orderBy('created_at', 'ASC')->paginate(10);
+        return view('ecommerce.feedback', compact('feedback'));
+    }
+
+    public function publish($id)
+    {
+        $feedback = Feedback::find($id);
+        dd($feedback);
+        $feedback->update([
+            'status' => 1
+        ]);
+
+        // return redirect(dd($request))->with(['success' => 'Terimakasih atas Feedbackmu!']);
+        return redirect(route('feedback.index'))->with(['success' => 'Terimakasih atas Feedbackmu!']);
+    }
 }
