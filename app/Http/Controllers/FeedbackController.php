@@ -35,17 +35,25 @@ class FeedbackController extends Controller
 
     public function list()
     {
-        $feedback = Feedback::orderBy('created_at', 'ASC')->paginate(10);
+        $feedback = Feedback::where('status', 1)->orderBy('created_at', 'ASC')->paginate(10);
         return view('ecommerce.feedback', compact('feedback'));
     }
 
     public function publish($id)
     {
         $feedback = Feedback::find($id);
-        dd($feedback);
-        $feedback->update([
-            'status' => 1
-        ]);
+        // dd($feedback);
+        
+        if ($feedback->status == 1) {
+            $feedback->update([
+                'status' => 0
+            ]);
+        } else {
+            $feedback->update([
+                'status' => 1
+            ]);
+        }
+        
 
         // return redirect(dd($request))->with(['success' => 'Terimakasih atas Feedbackmu!']);
         return redirect(route('feedback.index'))->with(['success' => 'Terimakasih atas Feedbackmu!']);

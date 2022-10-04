@@ -46,7 +46,7 @@ Route::group(['prefix' => 'administrator', 'middleware' => 'auth'], function() {
     Route::resource('kategory', KategoryController::class)->except(['create', 'show']);
     Route::resource('post', PostController::class)->except(['show']);
     Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
-    Route::post('/feedback', [FeedbackController::class, 'publish'])->name('feedback.publish');
+    Route::put('/feedback/{id}', [FeedbackController::class, 'publish'])->name('feedback.publish');
     
 });
 

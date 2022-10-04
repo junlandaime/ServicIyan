@@ -63,17 +63,26 @@
                                                     <td>{{ $row->created_at->format('d-m-Y') }}</td>
 
                                                     <!-- KARENA BERISI HTML MAKA KITA GUNAKAN { !! UNTUK MENCETAK DATA -->
-                                                    {{-- <td>
+                                                    <td>
                                                         {{ $row->status }}
                                                         <!-- FORM UNTUK MENGHAPUS DATA PRODUK -->
                                                         <form action="{{ route('feedback.publish', $row->id) }}"
                                                             method="post">
                                                             @csrf
-                                                            <input type="hidden" name="status" value="1">
+                                                            @method('PUT')
+                                                            {{-- <input type="hidden" name="status" value="1"> --}}
 
-                                                            <button class="btn btn-success btn-sm">Publish</button>
+                                                            @if ($row->status == 1)
+                                                                <button class="btn btn-warning btn-sm">Draft</button>
+                                                            @else
+                                                                <button class="btn btn-success btn-sm">Publish</button>
+                                                            @endif
+
+
                                                         </form>
-                                                    </td> --}}
+                                                        {{-- <a href="{{ route('feedback.publish', $row->id) }}"
+                                                            class="btn btn-warning btn-sm">Edit</a> --}}
+                                                    </td>
                                                 </tr>
                                             @empty
                                                 <tr>
