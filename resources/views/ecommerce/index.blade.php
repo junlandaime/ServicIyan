@@ -559,7 +559,7 @@
     <script>
         // Ganti nomor WhatsApp berikut dengan nomor kamu
         const NOMOR_WHATSAPP =
-            "628525963668"; //Pastikan nomor diawali dengan kode negara tanpa tanda "+" (cth. 085-XXX-XXX-XXX diubah mendaji 6285-XXX-XXX-XXX)
+            "6285798296177"; //Pastikan nomor diawali dengan kode negara tanpa tanda "+" (cth. 085-XXX-XXX-XXX diubah mendaji 6285-XXX-XXX-XXX)
 
         const ewc_hidden = document.querySelectorAll(".ewc_hidden");
         const ewc_button = document.querySelectorAll(".ewc_button");
